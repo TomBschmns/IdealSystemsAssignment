@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ListGroup() {
+function ListGroup(btnViewComments) {
   const [list, setList] = useState([]);
   const [search, setSearch] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -21,6 +21,10 @@ function ListGroup() {
     const searchTerm = e.target.value;
     setSearch(searchTerm.toLowerCase());
     setFilteredList(list.filter((l) => re.exec(l.title)));
+  };
+
+  const handleBtnClickComments = (e) => {
+    console.log(e.target.id);
   };
 
   useEffect(() => {
@@ -45,7 +49,11 @@ function ListGroup() {
               {list.map((item) => (
                 <li key={item.id}>
                   {item.title}
-                  <button id={item.id} className="buttenView">
+                  <button
+                    id={item.id}
+                    className="buttenView"
+                    onClick={handleBtnClickComments}
+                  >
                     View
                   </button>
                 </li>
@@ -56,7 +64,11 @@ function ListGroup() {
               {filteredList.map((item) => (
                 <li key={item.id}>
                   {item.title}
-                  <button id={item.id} className="buttenView">
+                  <button
+                    id={item.id}
+                    className="buttenView"
+                    onClick={handleBtnClickComments}
+                  >
                     View
                   </button>
                 </li>
