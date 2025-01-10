@@ -8,13 +8,22 @@ function App() {
   const [selectedComment, setSelectedComment] = useState("");
 
   const handleViewComments = (id) => {
+    setSelectedComment(id);
     setShowComments(true);
   };
   const handleBtnClose = () => {
     setShowComments(false);
   };
 
-  return <div>{showComments ? <Details /> : <ListGroup />}</div>;
+  return (
+    <div>
+      {showComments ? (
+        <Details handleBtnClose={handleBtnClose} />
+      ) : (
+        <ListGroup handleViewComments={handleViewComments} />
+      )}
+    </div>
+  );
 }
 
 export default App;

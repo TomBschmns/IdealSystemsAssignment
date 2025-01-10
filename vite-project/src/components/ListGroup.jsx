@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ListGroup(btnViewComments) {
+function ListGroup({ handleViewComments }) {
   const [list, setList] = useState([]);
   const [search, setSearch] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -52,7 +52,7 @@ function ListGroup(btnViewComments) {
                   <button
                     id={item.id}
                     className="buttenView"
-                    onClick={handleBtnClickComments}
+                    onClick={() => handleViewComments(item.id)}
                   >
                     View
                   </button>
@@ -67,7 +67,7 @@ function ListGroup(btnViewComments) {
                   <button
                     id={item.id}
                     className="buttenView"
-                    onClick={handleBtnClickComments}
+                    onClick={() => handleViewComments(item.id)}
                   >
                     View
                   </button>
