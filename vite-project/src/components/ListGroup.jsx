@@ -15,16 +15,13 @@ function ListGroup({ handleViewComments }) {
     }
     const data = await resp.json();
     setList(data);
+    console.log("test");
   }
 
   const handleInputChange = (e) => {
     const searchTerm = e.target.value;
     setSearch(searchTerm.toLowerCase());
     setFilteredList(list.filter((l) => re.exec(l.title)));
-  };
-
-  const handleBtnClickComments = (e) => {
-    console.log(e.target.id);
   };
 
   useEffect(() => {

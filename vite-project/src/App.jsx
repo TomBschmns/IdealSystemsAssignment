@@ -5,10 +5,10 @@ import { useState } from "react";
 
 function App() {
   const [showComments, setShowComments] = useState(false);
-  const [selectedComment, setSelectedComment] = useState("");
+  const [selectedPost, setSelectedPost] = useState("");
 
   const handleViewComments = (id) => {
-    setSelectedComment(id);
+    setSelectedPost(id);
     setShowComments(true);
   };
   const handleBtnClose = () => {
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       {showComments ? (
-        <Details handleBtnClose={handleBtnClose} />
+        <Details handleBtnClose={handleBtnClose} selectedPost={selectedPost} />
       ) : (
         <ListGroup handleViewComments={handleViewComments} />
       )}
