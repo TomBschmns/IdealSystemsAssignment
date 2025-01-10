@@ -6,8 +6,6 @@ function ListGroup() {
   const [filteredList, setFilteredList] = useState([]);
   const re = new RegExp(String.raw`${search}`, "g");
 
-  //console.log(list.filter((l) => re.exec(l.title)));
-
   async function getList() {
     const urlGET = "https://jsonplaceholder.typicode.com/posts";
     let resp = await fetch(urlGET);
@@ -21,7 +19,7 @@ function ListGroup() {
 
   const handleInputChange = (e) => {
     const searchTerm = e.target.value;
-    setSearch(searchTerm);
+    setSearch(searchTerm.toLowerCase());
     setFilteredList(list.filter((l) => re.exec(l.title)));
   };
 
