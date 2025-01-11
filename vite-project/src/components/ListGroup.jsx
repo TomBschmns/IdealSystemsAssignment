@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 
 function ListGroup({ handleViewComments }) {
+  // "hanleViewComment" is used when the "view" button is clicked. This will pass al the data of the post onto the "Details" component
+
+  // Define variables
   const [list, setList] = useState([]);
   const [search, setSearch] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const re = new RegExp(String.raw`${search}`, "g");
+  let re = new RegExp(String.raw`${search}`, "g");
 
+  // Async function to get the post list, is set into the "list" const
   async function getList() {
     const urlGET = "https://jsonplaceholder.typicode.com/posts";
     let resp = await fetch(urlGET);
@@ -17,9 +21,13 @@ function ListGroup({ handleViewComments }) {
     setList(data);
   }
 
+  // Event listner that wait on change in the taskbar, will filter the list into a filtered list depending on strings match with the users input
   const handleInputChange = (e) => {
+    // Get the value
     const searchTerm = e.target.value;
+    // Set all to lowercase for better results
     setSearch(searchTerm.toLowerCase());
+    // Filter the list using regular expression
     setFilteredList(list.filter((l) => re.exec(l.title)));
   };
 

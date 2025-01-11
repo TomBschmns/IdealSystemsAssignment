@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 
 function Details({ handleBtnClose, selectedPost }) {
+  // "handleBtnClose" is used when the "close" butten is pressed en will send a signal to "App" to close "Details"
+  // "selectedPost" gives us all the information about the post the user wants to know more about, the post id is used to get all the relevant comments
+
+  // Define variables
   const [comments, setComments] = useState([]);
 
+  // Async function in order to get the comments of "selectedPost", is set into the comments const
   async function getComments() {
     const urlGET = `https://jsonplaceholder.typicode.com/posts/${selectedPost.id}/comments`;
     let resp = await fetch(urlGET);
@@ -11,11 +16,9 @@ function Details({ handleBtnClose, selectedPost }) {
       return;
     }
     const data = await resp.json();
-    console.log(selectedPost);
-    console.log(data);
     setComments(data);
   }
-  // get the intire post from listgroup as to not call it here again
+
   useEffect(() => {
     getComments();
   }, []);
