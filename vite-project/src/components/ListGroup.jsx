@@ -71,7 +71,7 @@ function ListGroup({ handleViewComments }) {
                   <button
                     id={item.id}
                     className="buttenView"
-                    onClick={() => handleViewComments(item.id)}
+                    onClick={() => handleViewComments(item)}
                   >
                     View
                   </button>

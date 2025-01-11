@@ -6,6 +6,7 @@ function Details({ handleBtnClose, selectedPost }) {
 
   // Define variables
   const [comments, setComments] = useState([]);
+  console.log(selectedPost);
 
   // Async function in order to get the comments of "selectedPost", is set into the comments const
   async function getComments() {

@@ -10,6 +10,7 @@ function App() {
 
   // Sets the selected post and changes the view from the posts to the comments
   const handleViewComments = (post) => {
+    console.log(post);
     setSelectedPost(post);
     setShowComments(true);
   };
