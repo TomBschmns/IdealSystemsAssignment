@@ -10,12 +10,11 @@ function ListGroup({ handleViewComments }) {
     const urlGET = "https://jsonplaceholder.typicode.com/posts";
     let resp = await fetch(urlGET);
     if (!resp.ok) {
-      console.log("failed categories");
+      console.log("failed to get list");
       return;
     }
     const data = await resp.json();
     setList(data);
-    console.log("test");
   }
 
   const handleInputChange = (e) => {
@@ -49,7 +48,7 @@ function ListGroup({ handleViewComments }) {
                   <button
                     id={item.id}
                     className="buttenView"
-                    onClick={() => handleViewComments(item.id)}
+                    onClick={() => handleViewComments(item)}
                   >
                     View
                   </button>
