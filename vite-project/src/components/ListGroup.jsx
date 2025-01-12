@@ -5,7 +5,7 @@ function ListGroup({ handleViewComments }) {
 
   // Define variables
   const [list, setList] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [filteredList, setFilteredList] = useState([]);
   let re = new RegExp(String.raw`${search}`, "g");
 
@@ -65,18 +65,27 @@ function ListGroup({ handleViewComments }) {
             </>
           ) : (
             <>
-              {filteredList.map((item) => (
-                <li key={item.id}>
-                  {item.title}
-                  <button
-                    id={item.id}
-                    className="buttenView"
-                    onClick={() => handleViewComments(item)}
-                  >
-                    View
-                  </button>
-                </li>
-              ))}
+              {filteredList != "" ? (
+                <>
+                  {" "}
+                  {filteredList.map((item) => (
+                    <li key={item.id}>
+                      {item.title}
+                      <button
+                        id={item.id}
+                        className="buttenView"
+                        onClick={() => handleViewComments(item)}
+                      >
+                        View
+                      </button>
+                    </li>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <h1>No posts found</h1>
+                </>
+              )}
             </>
           )}
         </ul>
