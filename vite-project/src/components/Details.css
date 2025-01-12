@@ -1,0 +1,37 @@
+.btnClose{
+    background-color: white;
+    height: 30px;
+    width: 180px;
+    align-self: flex-end;
+}
+
+.wrapper_comments{
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+h2{
+    margin-bottom: 5px;
+}
+
+.commentList{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.commentItem{
+    padding: 5px 5px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.commentItem:nth-child(even){
+    background-color: aliceblue;
+}

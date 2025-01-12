@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Details.css";
 
 function Details({ handleBtnClose, selectedPost }) {
   // "handleBtnClose" is used when the "close" butten is pressed en will send a signal to "App" to close "Details"
@@ -25,7 +26,7 @@ function Details({ handleBtnClose, selectedPost }) {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper_Details">
       <button
         id="btnClose"
         className="btnClose"
@@ -33,14 +34,18 @@ function Details({ handleBtnClose, selectedPost }) {
       >
         Close
       </button>
-      <h1>{selectedPost.title}</h1>
-      <p>{selectedPost.body}</p>
-      <h2>Comments</h2>
-      <ul id="commentList" className="commentList">
-        {comments.map((item) => (
-          <li key={item.id}>{item.body}</li>
-        ))}
-      </ul>
+      <div className="wrapper_comments">
+        <h1>{selectedPost.title}</h1>
+        <p>{selectedPost.body}</p>
+        <h2>Comments</h2>
+        <ul id="commentList" className="commentList">
+          {comments.map((item) => (
+            <li key={item.id} className="commentItem">
+              {item.body}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

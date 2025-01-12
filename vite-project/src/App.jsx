@@ -21,12 +21,17 @@ function App() {
   };
 
   return (
-    <div>
-      {showComments ? (
-        <Details handleBtnClose={handleBtnClose} selectedPost={selectedPost} />
-      ) : (
-        <ListGroup handleViewComments={handleViewComments} />
-      )}
+    <div className="wrapper_body">
+      <div className="wrapper_component">
+        {showComments ? (
+          <Details
+            handleBtnClose={handleBtnClose}
+            selectedPost={selectedPost}
+          />
+        ) : (
+          <ListGroup handleViewComments={handleViewComments} />
+        )}
+      </div>
     </div>
   );
 }

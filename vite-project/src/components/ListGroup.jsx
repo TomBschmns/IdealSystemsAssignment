@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Listgroup.css";
 
 function ListGroup({ handleViewComments }) {
   // "hanleViewComment" is used when the "view" button is clicked. This will pass al the data of the post onto the "Details" component
@@ -36,7 +37,7 @@ function ListGroup({ handleViewComments }) {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper_ListGroup">
       <input
         type="search"
         id="searchName"
@@ -51,11 +52,11 @@ function ListGroup({ handleViewComments }) {
           {search == "" ? (
             <>
               {list.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="listItem">
                   {item.title}
                   <button
                     id={item.id}
-                    className="buttenView"
+                    className="btnView"
                     onClick={() => handleViewComments(item)}
                   >
                     View
@@ -69,11 +70,11 @@ function ListGroup({ handleViewComments }) {
                 <>
                   {" "}
                   {filteredList.map((item) => (
-                    <li key={item.id}>
+                    <li key={item.id} className="listItem">
                       {item.title}
                       <button
                         id={item.id}
-                        className="buttenView"
+                        className="btnView"
                         onClick={() => handleViewComments(item)}
                       >
                         View
@@ -83,7 +84,7 @@ function ListGroup({ handleViewComments }) {
                 </>
               ) : (
                 <>
-                  <h1>No posts found</h1>
+                  <h1 className="notFound">No posts found</h1>
                 </>
               )}
             </>
