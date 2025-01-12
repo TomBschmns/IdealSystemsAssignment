@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import ListGroup from "./components/ListGroup";
 import Details from "./components/Details";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Details.css";
+//import "./Details.css";
 
 function Details({ handleBtnClose, selectedPost }) {
   // "handleBtnClose" is used when the "close" butten is pressed en will send a signal to "App" to close "Details"

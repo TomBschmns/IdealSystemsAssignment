@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Listgroup.css";
+//import "./Listgroup.css";
 
 function ListGroup({ handleViewComments }) {
   // "hanleViewComment" is used when the "view" button is clicked. This will pass al the data of the post onto the "Details" component
